@@ -1,11 +1,16 @@
-name: Triggered Workflow
+name: Triggered by Event Grid
 
 on:
-  workflow_dispatch:
+  repository_dispatch:
+    types: [eventgrid-trigger]
 
 jobs:
-  hello-world:
+  run:
     runs-on: ubuntu-latest
     steps:
-      - name: Say Hello
-        run: echo "Hello World"
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Echo trigger
+        run: echo "Triggered by Azure Event Grid"
+
