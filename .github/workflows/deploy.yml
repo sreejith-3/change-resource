@@ -1,8 +1,7 @@
 name: Triggered by Event Grid
 
 on:
-  repository_dispatch:
-    types: [eventgrid-trigger]
+ workflow_dispatch:
 
 jobs:
   run:
